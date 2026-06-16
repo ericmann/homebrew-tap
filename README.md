@@ -6,7 +6,7 @@ A personal [Homebrew](https://brew.sh) tap for [Eric Mann](https://github.com/er
 
 | Cask | What it pours |
 | --- | --- |
-| [`journal`](https://github.com/ericmann/journal) | A local-first developer journal — semantic search and AI synthesis over your notes, running entirely on your machine. |
+| [`journal`](https://github.com/ericmann/journal) | A local-first developer journal — local semantic search over your notes, plus AI synthesis via **cloud Claude or a fully local model**, your choice. |
 
 ## Install
 
@@ -26,7 +26,7 @@ ollama pull qwen3-embedding:4b
 journal doctor          # tells you if anything's missing
 ```
 
-Cloud synthesis (`journal synth`) is optional and needs an `ANTHROPIC_API_KEY` — but `journal` runs fully local too (`synth_provider: ollama`). The full story lives in the [journal docs](https://github.com/ericmann/journal#readme).
+Synthesis (`journal synth`) is optional and runs two ways: **cloud Claude** (Sonnet by default — set `ANTHROPIC_API_KEY`) or a **fully local Ollama model** (`synth_provider: ollama` — no key, zero egress). The full story lives in the [journal docs](https://github.com/ericmann/journal#readme).
 
 ## House rules
 
