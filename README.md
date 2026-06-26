@@ -7,7 +7,7 @@ A personal [Homebrew](https://brew.sh) tap for [Eric Mann](https://github.com/er
 | Cask | What it pours |
 | --- | --- |
 | [`journal`](https://github.com/ericmann/journal) | A local-first developer journal — local semantic search over your notes, plus AI synthesis via **cloud Claude or a fully local model**, your choice. |
-| [`float-mcp`](https://github.com/ericmann/float-mcp) | A local stdio MCP server for [Float](https://www.float.com) time tracking — review and log your hours from Claude instead of the GUI. Your Float API token lives in the server config and **never enters the model's context**. _(Source not yet public.)_ |
+| [`float-mcp`](https://github.com/ericmann/float-mcp) | A local stdio MCP server for [Float](https://www.float.com) time tracking — review and log your hours from Claude instead of the GUI. Your Float API token lives in the server config and **never enters the model's context**. |
 
 ## Install
 
@@ -53,7 +53,3 @@ The token is held entirely in the server config — it never enters the model's 
 
 - Casks here are built and published automatically by [GoReleaser](https://goreleaser.com) on each tagged release — please don't hand-edit `Casks/*.rb`; they'll be overwritten.
 - macOS binaries are ad-hoc signed, not Apple-notarized. The cask strips the quarantine flag on install, so the first run isn't blocked by Gatekeeper.
-
----
-
-<sub>🚚 Moved here from <code>displacetech/tap</code> as of <code>journal</code> v2.4.1. The old tap is deprecated — update with <code>brew install ericmann/tap/journal</code>.</sub>
