@@ -7,6 +7,7 @@ A personal [Homebrew](https://brew.sh) tap for [Eric Mann](https://github.com/er
 | Cask | What it pours |
 | --- | --- |
 | [`journal`](https://github.com/ericmann/journal) | A local-first developer journal — local semantic search over your notes, plus AI synthesis via **cloud Claude or a fully local model**, your choice. |
+| [`float-mcp`](https://github.com/ericmann/float-mcp) | A local stdio MCP server for [Float](https://www.float.com) time tracking — review and log your hours from Claude instead of the GUI. Your Float API token lives in the server config and **never enters the model's context**. _(Source not yet public.)_ |
 
 ## Install
 
@@ -27,6 +28,26 @@ journal doctor          # tells you if anything's missing
 ```
 
 Synthesis (`journal synth`) is optional and runs two ways: **cloud Claude** (Sonnet by default — set `ANTHROPIC_API_KEY`) or a **fully local Ollama model** (`synth_provider: ollama` — no key, zero egress). The full story lives in the [journal docs](https://github.com/ericmann/journal#readme).
+
+## float-mcp
+
+A local **stdio MCP server** that exposes [Float](https://www.float.com) time tracking — reviewing and logging time — as Model Context Protocol tools, so you can work your hours from Claude instead of the Float GUI.
+
+```sh
+brew install ericmann/tap/float-mcp
+```
+
+Then give it a Float API token and register it with your MCP client:
+
+```sh
+# Create a token in Float → Team Settings → Integrations (needs account-owner),
+# then provide it via the FLOAT_API_TOKEN env var or ~/.config/float/config.json
+float-mcp doctor                                          # verify your setup
+
+claude mcp add float --env FLOAT_API_TOKEN=... -- float-mcp mcp
+```
+
+The token is held entirely in the server config — it never enters the model's context, and is never logged or returned in tool output.
 
 ## House rules
 
